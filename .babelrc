@@ -1,0 +1,28 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "~adapters": "./src/adapters/",
+          "~middlewares": "./src/middlewares/",
+          "~repositories": "./src/repositories/",
+          "~useCases": "./src/useCases/",
+          "~exceptions": "./src/exceptions/"
+        }
+      }
+    ]
+  ],
+  "ignore": ["**/*.spec.ts"]
+}

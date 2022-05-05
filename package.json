@@ -8,6 +8,11 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-typescript": "^7.16.7",
     "@swc/core": "^1.2.177",
     "@swc/jest": "^0.2.20",
     "@types/cors": "^2.8.12",
@@ -17,6 +22,7 @@
     "@types/nodemailer": "^6.4.4",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -30,6 +36,8 @@
     "typescript": "^4.6.4"
   },
   "scripts": {
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "start": "node ./dist/server.js",
     "test": "jest",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --files --ignore-watch node_modules --no-notify src/server.ts",
     "lint": "eslint --fix --ext .js,.ts,.json ."
