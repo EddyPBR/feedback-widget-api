@@ -1,0 +1,11 @@
+**/node_modules/*
+**/out/*
+**/dist/*
+tsconfig.json
+package.json
+.eslintrc.json
+.prettierrc.json5
+dockerfile
+*.yml
+*.lock
+*.config
