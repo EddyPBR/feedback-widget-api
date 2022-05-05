@@ -1,6 +1,6 @@
 import { MailAdapter } from "~adapters/MailAdapter";
 import { FeedbacksRepository } from "~repositories/FeedbacksRepository";
-
+import AppException from "~exceptions/App.exception";
 interface SubmitFeedbackUseCaseRequest {
   type: string;
   comment: string;
@@ -17,15 +17,15 @@ class SubmitFeedbackUseCase {
     const { type, comment, screenshot } = request;
 
     if (!type) {
-      throw new Error("Type is required.")
+      throw new AppException(400, "Type is required");
     }
 
     if (!comment) {
-      throw new Error("Comment is required.")
+      throw new AppException(400, "Comment is required");
     }
 
     if (screenshot && !screenshot.startsWith("data:image/png;base64")) {
-      throw new Error("Invalid screenshot format.");
+      throw new AppException(400, "Invalid screenshot format");
     }
 
     await this.feedbacksRepository.create({
