@@ -1,19 +1,12 @@
-import express, { Request, Response } from "express";
-import prisma from "./prisma";
+import express from "express";
+
+import routes from "./routes";
 
 const app = express();
 
 app.use(express.json());
 
-app.post("/feedbacks", async (request: Request, response: Response) => {
-  const { type, comment, screenshot } = request.body;
-
-  const feedback = await prisma.feedback.create({
-    data: { type, comment, screenshot },
-  });
-
-  return response.status(201).json(feedback);
-});
+app.use(routes);
 
 app.listen(3333, () => {
   console.log("HTTP server running!");
