@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import SubmitFeedbackUseCase from "./SubmitFeedbackUseCase";
+import SubmitFeedbackUseCase from "./SubmitFeedback.useCase";
 
 const createFeedbackSpy = jest.fn();
 const sendMailSpy = jest.fn();
