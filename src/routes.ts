@@ -1,5 +1,5 @@
 import express from "express";
-import SubmitFeedbackUseCase from "useCases/SubmitFeedbackUseCase";
+import SubmitFeedbackUseCase from "~useCases/SubmitFeedbackUseCase";
 import NodemailerMailAdapter from "~adapters/nodemailer/nodemailerMailAdapter";
 import PrismaFeedbacksRepository from "~repositories/prisma/PrismaFeedbacksRepository";
 
