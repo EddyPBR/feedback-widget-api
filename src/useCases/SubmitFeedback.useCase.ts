@@ -1,5 +1,5 @@
-import { MailAdapter } from "~adapters/MailAdapter";
-import { FeedbacksRepository } from "~repositories/FeedbacksRepository";
+import { MailAdapter } from "~adapters/Mail.adapter";
+import { FeedbacksRepository } from "~repositories/Feedbacks.repository";
 import AppException from "~exceptions/App.exception";
 interface SubmitFeedbackUseCaseRequest {
   type: string;
@@ -40,6 +40,9 @@ class SubmitFeedbackUseCase {
         `<div style="font-family: sans-serif; font-size: 16px; color: #111;">`,
         `<p>Tipo do feedback</p>`,
         `<p>Comentário: ${comment}</p>`,
+        screenshot
+          ? `<img src="${screenshot}" alt="screenshot sended by user" />`
+          : null,
         `</div>`,
       ].join("\n"),
     });
